@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <import></import>
+    <title>空き家</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Klee+One&display=swap');
+
+        * {
+            font-family: 'Klee One', cursive;
+        }
+
+        .title {
+            position: fixed;
+            margin: 0 auto;
+            left: 0;
+            top: 0;
+            box-shadow: 0px 4px 0px 0px gainsboro;
+            width: 100%;
+            height: 50px;
+            z-index: 2;
+            background-color: #FDCD8C;
+        }
+
+        .title > a {
+            background-color: transparent;
+            border: none;
+        }
+
+        .title > a > img {
+            height: 90%;
+            width: 80px;
+            margin-left: 20px;
+            margin-top: 3px;
+
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(calc(-250px * 7));
+            }
+        }
+
+        .banner {
+            width: 900px;
+            height: 450px;
+            box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.125);
+            margin: 55px auto;
+            overflow: hidden;
+            display: flex;
+
+        }
+
+        .slider {
+            width: 900px;
+            height: 450px;
+            position: relative;
+            opacity: 0.7;
+
+
+        }
+
+        .slider::before, .slider::after {
+            content: "";
+            height: 100px;
+            width: 200px;
+
+        }
+
+        .slider::after {
+            right: 0;
+            top: 0;
+
+        }
+
+        .slider::before {
+            left: 0;
+            top: 0;
+        }
+
+        .slide-track {
+            animation: scroll 50s linear infinite;
+            display: flex;
+            width: calc(250px * 14);
+        }
+
+        .maintext {
+            position: absolute;
+            width: 500px;
+            height: 50px;
+            margin-top: 135px;
+            left: 330px;
+            z-index: 1;
+            text-decoration: underline;
+            text-decoration-color: white;
+            text-decoration-thickness: 12px;
+            font-size: 20px;
+        }
+
+        .maintext > h1 {
+            margin-left: 80px;
+        }
+
+        .account {
+            width: 900px;
+            height: 100px;
+            margin: 40px auto;
+            border-radius: 20px;
+            background-color: papayawhip;
+
+        }
+
+        .account > p {
+            font-size: 20px;
+            padding: 35px 0;
+            text-align: center;
+
+        }
+
+        .box {
+            width: 900px;
+            height: 400px;
+            background-color: papayawhip;
+            margin: 10px auto;
+        }
+
+        .roomname {
+            height: 50px;
+            background-color: #FDCD8C;
+            display: flex;
+        }
+
+        .roomname > li {
+            font-size: 25px;
+            margin: 7px;
+
+        }
+
+        .room {
+            display: flex;
+            justify-content: space-around;
+            background-color: papayawhip;
+        }
+
+        .roombox {
+            width: 200px;
+            height: 150px;
+            background-color: white;
+            margin: 15px auto;
+
+        }
+
+        .roomboxbtn {
+            width: 100%;
+            height: 100%;
+            /*display: flex;*/
+            background-color: #FDCD8C;
+        }
+
+        .roomboxbtn > img {
+            width: 100%;
+            height: 50%;
+            background-color: white;
+
+        }
+
+        .name-card {
+            height: 30px;
+            /*background-color: blue;*/
+        }
+
+        .price-card {
+            height: 25px;
+            /*background-color: orange;*/
+        }
+
+        .proxy-card {
+            height: 20px;
+            width: 70%;
+            font-size: 13px;
+            /*background-color: lightsalmon;*/
+
+        }
+
+        .proxy-btn {
+            display: flex;
+        }
+
+        .proxy-btn > button {
+            float: right;
+            width: 30%;
+            font-size: 10px;
+            padding: 0px;
+            border: solid #FDCD8C;
+        }
+
+        .report {
+            width: 900px;
+            height: 300px;
+            margin: 50px auto;
+            background-color: papayawhip;
+            /*display: flex;*/
+        }
+
+        .pain {
+            width: 900px;
+            height: 230px;
+            background-color: #FDCD8C;
+        }
+
+        .desc {
+            width: 100%;
+            height: 20%;
+            background-color: papayawhip;
+        }
+
+        .desc > a {
+            margin: 0px auto;
+            /*margin-top: 40px;*/
+            margin-left: 350px;
+        }
+
+        .add {
+            width: 100%;
+            height: 200px;
+            background-color: #FDCD8C;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            mainpage();
+        });
+
+        function mainpage() {
+            fetch('/main').then(res => res.json()).then(data => {
+                let rows = data['result']
+                 $('#roomid1').empty()
+                rows.forEach((a) =>{
+                    let title = a['title']
+                    let image = a['image']
+                    let price = a['price']
+                    let proxy = a['proxy']
+
+                    let temp_html = `<div class="roomboxbtn">
+                <img src=${image}>
+                <div class="name-card">${title}</div>
+                <div class="price-card">価格 ${price}</div>
+                <div class="proxy-btn">
+                    <div class="proxy-card">${proxy}</div>
+                    <!-- バトンl -->
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal1">
+                        詳しい
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1"
+                         aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel1">Modal title</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    ...
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">閉じる
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>`
+                    // console.log(temp_html)
+                    $('#roomid1').append(temp_html)
+                })
+            })
+        }
+
+
+
+    </script>
+</head>
+<body>
+<div class="title">
+    <a href="main.html"><img src="akiya.png" alt="ロゴ"></a>
+</div>
+<div class="banner">
+    <div class="maintext">
+        <h1>空き家で<br>お気に入りの部屋を</h1>
+    </div>
+    <div class="slider">
+        <div class="slide-track">
+            <div class="slide">
+                <img src="https://hamami-homes.com/wp-content/uploads/2021/06/window2.jpg">
+            </div>
+            <div class="slide">
+                <img src="https://img.cainz.com/cc/img/pet/23ss/4549509899938_01.jpg">
+            </div>
+            <div class="slide">
+                <img src="https://link-house.co.jp/wp/wp-content/uploads/image1-4-900x450.jpg">
+            </div>
+            <div class="slide">
+                <img src="https://lh4.googleusercontent.com/aSngrk4mQ5aieZ2RivKkAKqv02-r7UNsQx8_w9JZ3Lf8tKMiyewISPL9fBpXSVFdNlYMCSH-jpSFhmWAICXlKG8vfWjLd6cjgZfSJTvowGBbYSHcwrV5P_k59mt-Wjax_k49Qjp46rb1H-Jg9dTWUrM">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="account">
+    <p>空き家はお部屋の情報や引っ越しの情報を提供しております。</p>
+</div>
+<div class="box">
+    <div class="roomname">
+        <li>部屋探し</li>
+    </div>
+    <div class="room">
+        <div class="roombox" id="roomid1">
+            <div class="roomboxbtn">
+                <img src="#">
+                <div class="name-card">title</div>
+                <div class="price-card">価格</div>
+                <div class="proxy-btn">
+                    <div class="proxy-card">管理費</div>
+                    <!-- バトンl -->
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal1">
+                        詳しい
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1"
+                         aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel1">Modal title</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    ...
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">閉じる
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="roombox" id="roomid2">
+            <div class="roomboxbtn">
+                <img src="#">
+                <div class="name-card">title</div>
+                <div class="price-card">価格</div>
+                <div class="proxy-btn">
+                    <div class="proxy-card">管理費</div>
+                    <!-- バトンl -->
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal2">
+                        詳しい
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2"
+                         aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel2">Modal title</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    ...
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">閉じる
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="roombox" id="roomid3">
+            <div class="roomboxbtn">
+                <img src="#">
+                <div class="name-card">title</div>
+                <div class="price-card">価格</div>
+                <div class="proxy-btn">
+                    <div class="proxy-card">管理費</div>
+                    <!-- バトンl -->
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal3">
+                        詳しい
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel3"
+                         aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel3">Modal title</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    ...
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">閉じる
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="roombox" id="roomid4">
+            <div class="roomboxbtn">
+                <img src="#">
+                <div class="name-card">title</div>
+                <div class="price-card">価格</div>
+                <div class="proxy-btn">
+                    <div class="proxy-card">管理費</div>
+                    <!-- バトンl -->
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal4">
+                        詳しい
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel4"
+                         aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel4">Modal title</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    ...
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">閉じる
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="room">
+        <div class="roombox" id="roomid5">
+            <div class="roomboxbtn">
+                <img src="#">
+                <div class="name-card">title</div>
+                <div class="price-card">価格</div>
+                <div class="proxy-btn">
+                    <div class="proxy-card">管理費</div>
+                    <!-- バトンl -->
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal5">
+                        詳しい
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal5" tabindex="-1" aria-labelledby="exampleModalLabel5"
+                         aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel5">Modal title</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    ...
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">閉じる
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="roombox" id="roomid6">
+            <div class="roomboxbtn">
+                <img src="#">
+                <div class="name-card">title</div>
+                <div class="price-card">価格</div>
+                <div class="proxy-btn">
+                    <div class="proxy-card">管理費</div>
+                    <!-- バトンl -->
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal6">
+                        詳しい
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal6" tabindex="-1" aria-labelledby="exampleModalLabel6"
+                         aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel6">Modal title</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    ...
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">閉じる
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="roombox" id="roomid7">
+            <div class="roomboxbtn">
+                <img src="#">
+                <div class="name-card">title</div>
+                <div class="price-card">価格</div>
+                <div class="proxy-btn">
+                    <div class="proxy-card">管理費</div>
+                    <!-- バトンl -->
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal7">
+                        詳しい
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal7" tabindex="-1" aria-labelledby="exampleModalLabel7"
+                         aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel7">Modal title</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    ...
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">閉じる
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="roombox" id="roomid8">
+            <div class="roomboxbtn">
+                <img src="#">
+                <div class="name-card">title</div>
+                <div class="price-card">価格</div>
+                <div class="proxy-btn">
+                    <div class="proxy-card">管理費</div>
+                    <!-- バトンl -->
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal8">
+                        詳しい
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal8" tabindex="-1" aria-labelledby="exampleModalLabel8"
+                         aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel8">Modal title</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    ...
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">閉じる
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="report">
+    <div class="pain"></div>
+    <div class="desc">
+        <a href="comment.html">
+            <button type="button">
+                引っ越しの情報に移動
+            </button>
+        </a>
+    </div>
+</div>
+<div class="add"></div>
+</body>
+</html>
