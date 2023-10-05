@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+
+    <title>情報共有欄</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Klee+One&display=swap');
+
+        * {
+            font-family: 'Klee One', cursive;
+        }
+
+        .title {
+            position: fixed;
+            margin: 0 auto;
+            left: 0;
+            top: 0;
+            box-shadow: 0px 4px 0px 0px gainsboro;
+            width: 100%;
+            height: 50px;
+            z-index: 2;
+            background-color: #FDCD8C;
+        }
+
+        .title > a {
+            background-color: transparent;
+            border: none;
+        }
+
+        .title > a > img {
+            height: 90%;
+            width: 80px;
+            margin-left: 20px;
+            margin-top: 3px;
+
+        }
+
+        .roomex {
+            width: 900px;
+            height: 3650px;
+            margin-top: 55px;
+            margin: 10px auto;
+            display: flex;
+            background-color: papayawhip;
+        }
+
+        .roomcard {
+            margin: auto;
+            height: 98%;
+            display: flex;
+            background-color: #f1d5a5;
+        }
+
+        .roomtitle-1 {
+            margin: 50px auto;
+            margin-left: 15px;
+            margin-right: 15px;
+            width: 800px;
+            height: 100px;
+            border-radius: 20px;
+            background-color: white;
+        }
+
+        .roomtitle-1 > h1 {
+            font-size: 30px;
+            padding-top: 30px;
+            text-align: center;
+
+        }
+
+        .roomtitle-1 > img {
+            margin: 60px 75px auto;
+        }
+
+        .person {
+            margin: auto;
+            width: 90%;
+            height: 140px;
+            display: flex;
+        }
+
+        .per {
+            margin-top: 50px;
+            margin-left: 20px;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-image: url("https://4.bp.blogspot.com/-xN3OofpDu2A/XAnvN3Vpj-I/AAAAAAABQmA/guSSixGZ6cYFey2lgEUnc5q3mEUj6quOACLcBGAs/s800/business_man1_1_smile.png");
+            background-position: center;
+            background-size: cover;
+            background-color: white;
+        }
+
+        .per1 {
+            margin: 50px auto;
+            width: 80%;
+            height: 85px;
+            border-radius: 20px;
+            background-color: white;
+        }
+
+        .per1 > p {
+            margin: 5px 20px;
+        }
+
+        .per2 {
+            margin-top: 50px;
+            margin-left: 20px;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-image: url("https://3.bp.blogspot.com/-S7iQQCOgfWY/XAnvQWwBGtI/AAAAAAABQmc/z7yIqGjIQr88Brc_QNdOGsrJRLvqY1hcQCLcBGAs/s800/business_man2_4_think.png");
+            background-position: center;
+            background-size: cover;
+            background-color: white;
+        }
+
+        .per3 {
+            margin: 50px auto;
+            width: 80%;
+            height: 85px;
+            border-radius: 20px;
+            background-color: white;
+        }
+
+        .per3 > p {
+            margin: 5px 20px;
+        }
+
+        .home {
+            width: 90%;
+            height: 400px;
+            margin: auto;
+            display: flex;
+            /*background-color: #f1d5a5;*/
+        }
+
+        .square {
+            margin-top: 40px;
+            width: 10px;
+            height: 30px;
+            background-color: orange;
+        }
+
+        .square1 {
+            margin-left: 10px;
+            width: 700px;
+            height: 30px;
+            position: relative;
+        }
+
+        .square1::before {
+            content: "";
+            width: 700px;
+            height: 30px;
+            opacity: 0.3;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            right: 0px;
+            background-color: orange;
+            background-size: cover;
+        }
+
+        .square1 > p {
+            margin-left: 10px;
+        }
+
+        .square2 {
+            margin-top: 78px;
+            margin-right: 20px;
+            width: 700px;
+            height: 760px;
+            background-color: white;
+            border-radius: 10px;
+        }
+
+        .square2 > p {
+            margin: 10px;
+        }
+
+        .square2 > li {
+            margin-left: 15px;
+        }
+
+        .square3 {
+            margin-left: 40px;
+            margin-top: 480px;
+            width: 10px;
+            height: 30px;
+            background-color: orange;
+        }
+
+        .square4 {
+            margin-left: 10px;
+            width: 700px;
+            height: 30px;
+            position: relative;
+        }
+
+        .square4::before {
+            content: "";
+            width: 700px;
+            height: 30px;
+            opacity: 0.3;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            right: 0px;
+            background-color: orange;
+            background-size: cover;
+        }
+
+        .square4 > p {
+            margin: 10px;
+        }
+
+        .time {
+            margin: 10px auto;
+            margin-left: 48px;
+            width: 692px;
+            height: 230px;
+            border-radius: 10px;
+            background-color: white;
+        }
+
+        .time > li {
+            padding-top: 10px;
+            margin-left: 15px;
+        }
+
+        .time > p {
+            margin: 10px;
+        }
+
+        .time1 {
+            width: 658px;
+            height: 600px;
+            margin: 20px auto;
+            margin-right: 75px;
+            border-radius: 10px;
+            background-position: center;
+            background-image: url("https://suumo.jp/article/oyakudachi/wp-content/uploads/2020/11/hitorigurashi_bukken_sub02.jpg");
+            background-size: cover;
+        }
+
+        .square5 {
+            margin-left: 40px;
+            margin-top: 50px;
+            width: 10px;
+            height: 30px;
+            background-color: orange;
+        }
+
+        .square6 {
+            margin-left: 10px;
+            width: 700px;
+            height: 30px;
+            position: relative;
+        }
+
+        .square6::before {
+            content: "";
+            width: 700px;
+            height: 30px;
+            opacity: 0.3;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            right: 0px;
+            background-color: orange;
+            background-size: cover;
+        }
+
+        .square6 > p {
+            margin: 10px;
+        }
+
+        .check {
+            margin: 10px auto;
+            margin-left: 48px;
+            width: 692px;
+            height: 750px;
+            border-radius: 10px;
+            background-color: white;
+        }
+
+        .check > li {
+            padding-top: 10px;
+            margin-left: 15px;
+        }
+
+        .check > p {
+            margin: 10px;
+        }
+
+        .person1 {
+            margin: auto;
+            width: 90%;
+            height: 140px;
+            display: flex;
+        }
+
+        .per4 {
+            margin-top: 50px;
+            margin-left: 20px;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-image: url("https://3.bp.blogspot.com/-dSPRqYvIhNk/XAnvPdvjBFI/AAAAAAABQmM/izfRBSt1U5o7eYAjdGR8NtoP4Wa1_Zn8ACLcBGAs/s200/business_man1_4_laugh.png");
+            background-position: center;
+            background-size: cover;
+            background-color: white;
+        }
+
+        .per5 {
+            margin: 50px auto;
+            width: 80%;
+            height: 85px;
+            border-radius: 20px;
+            background-color: white;
+        }
+
+        .per5 > p {
+            margin: 5px 20px;
+        }
+
+        .text {
+            width: 900px;
+            height: 150px;
+            top: auto;
+            margin: 10px auto;
+            display: flex;
+            background-color: #FDCD8C;
+        }
+
+        input {
+            width: 85%;
+            height: 60%;
+            margin: 30px 40px auto;
+            background-color: white;
+        }
+
+        .text > button {
+            height: 100px;
+            width: 100px;
+            margin: 25px auto;
+            margin-right: 20px;
+        }
+
+        .comment {
+            width: 900px;
+            height: 150px;
+            background-color: papayawhip;
+            margin: 10px auto;
+            display: flex;
+        }
+
+        .ment {
+            width: 90%;
+            height: 60%;
+            margin: 30px auto;
+            background-color: white;
+        }
+
+        .add {
+            width: 100%;
+            height: 200px;
+            background-color: #FDCD8C;
+        }
+
+        　   </style>
+</head>
+<body>
+<div class="title">
+    <a href="main.html"><img src="akiya.png" alt="ロゴ"></a>
+</div>
+<div class="roomex">
+    <div class="roomcard">
+        <div class="roomtitle-1">
+            <h1>一人暮らしの物件探し・部屋選びのポイントは？</h1>
+            <img src="https://suumo.jp/article/oyakudachi/wp-content/uploads/2020/11/hitorigurashi_bukken_650.png">
+            <div class="person">
+                <div class="per"></div>
+                <div class="per1">
+                    <p>はじめまして。<br> インテリアコーディネーターの住吉さやかと申します。
+                        <br> ここでは、引越しやインテリアの情報を提供いたします。</p>
+                </div>
+            </div>
+            <div class="person">
+                <div class="per2"></div>
+                <div class="per3">
+                    <p>引越しの問題で多くの方が悩んだり困っているかもしれません。
+                        <br> その方々のために色々書いてみようと思いますので、<br>
+                        気楽にご覧ください。
+                    </p>
+                </div>
+            </div>
+            <div class="home">
+                <div class="square">
+                    <div class="square1">
+                        <p>物件はアパートかマンションか？一人暮らしの部屋探しの選択肢</p>
+                    </div>
+                </div>
+                <div class="square2">
+                    <p>
+                        ひと口に一人暮らしの部屋といっても、アパートかマンションか、賃貸か購入かなど、さまざまな選択肢がある。自分に合った物件を見つけるには部屋探しの前にそれぞれの特徴を理解しておいたほうがいいだろう。選択肢ごとのメリット・デメリットを一人暮らしアドバイザーの河野さんに伺った。</p>
+                    <li>アパートとマンションの違い</li>
+                    <p>
+                        アパートとマンションに明確な違いはないが、「一般的には、アパートは木造や軽量鉄骨などの2～3階建て、マンションは鉄骨や鉄筋コンクリート造で3階以上の建物、と分けられることが多いようです」と河野さん。これを定義とした場合の、それぞれのメリット・デメリットを教えてもらった。</p>
+                    <li>アパートのメリット・デメリット</li>
+                    <p>アパートのメリット<br>
+                        家賃が比較的安めなのが最大のメリット
+                        建物の階数も低く、こぢんまりとしていて入居者も少ないので、近隣の人の顔もわかって安心
+                        <br><br>アパートのデメリット<br>
+                        セキュリティ対策は比較的甘い傾向
+                        構造が木造や軽量鉄骨が多いため、築年数や立て方によっては近隣住戸の音が聞こえやすいことも</p>
+                    <li>マンションのメリット・デメリット</li>
+                    <p>マンションのメリット<br>
+                        鉄骨や鉄筋コンクリート造のため、耐震性や耐火性が高めの傾向<br>
+                        近隣の音も聞こえにくい<br>
+                        オートロック、防犯カメラ、管理人常駐などのセキュリティ対策がしっかりしているところが多い<br>
+                        分譲タイプの賃貸では住宅設備が整っていることが多い<br>
+                        <br>マンションのデメリット<br>
+                        家賃は高め<br>
+                        大型マンションだとどんな人が住んでいるかわかりにくい点も</p>
+                </div>
+            </div>
+            <div class="square3">
+                <div class="square4">
+                    <p>部屋探しと契約はどれくらいの期間がかかる？</p>
+                </div>
+            </div>
+            <div class="time">
+                <li>物件の検索から入居まで最短で１～２週間くらい</li>
+                <p>賃貸契約の一般的な流れは下図のとおり。物件の検索から入居までにかかる期間は、
+                    すべて<br>がスムーズに運んだとして最短でも１～2週間ほど。希望の物件が見つからない、入居審査が通らないなどで数週間かかるケースもあるようだ。<br>
+                    <br>また、特に新築物件を狙うなら、早めに動くことがポイント。それまでに不動産情報サイトなどで物件を検索し、自分の予算内ではどんな部屋に住めるのか、
+                    イメージをもっておくと不動産会社との話がスムーズだ。
+                </p>
+            </div>
+
+            <div class="time1"></div>
+
+            <div class="square5">
+                <div class="square6">
+                    <p>一人暮らしの物件選びコツ　どんな点をチェックし、何を重視して部屋探しをすればいい？</p>
+                </div>
+            </div>
+            <div class="check">
+                <li>重視したいポイントはライフスタイルによってさまざま</li>
+                <p>
+                    部屋探しにおいて重視する条件は、調査によると、首都圏の一人暮らし世帯では「路線・駅やエリア」（56.2％）、「通勤・通学時間」（51.9％）、「最寄駅からの時間」（49.4%）、「設備・仕様＜キッチン・お風呂・トイレなど＞」（38.5％）、「面積＜広さ＞」（37.4％）が上位５項目となっている（「2019年度賃貸契約者にみる部屋探しの実態調査（首都圏版）」2020年6月実施
+                    リクルート住まいカンパニー調べ）。ただし、ライフスタイルによっても違うため、それぞれの重視すべきポイントを河野さんに伺った。</p>
+
+                <li>学生</li>
+                <p>
+                    通学のしやすさはもちろんだが、家賃を抑えることも重要。社会人に比べると少し時間があるので、通学には便利な駅だけれど、駅までの距離がある物件を選ぶのも手。駅からの距離は家賃にも大きく影響するポイントなので、自分がちょっと努力をすれば、それだけでも家賃はぐんと下がるかも。</p>
+
+                <li>社会人</li>
+                <p>
+                    通勤アクセスはもちろんだが、駅からの近さも大事。特に残業が多い場合など、学生と違って駅から遠いのは負担になりやすい。また、暮らしやすさも大事。帰ってきたときに利用できるスーパー、コンビニ、ドラッグストアがあると便利。なお、会社に近いからとオフィス街に住むと、周辺のお店が土日休みというケースもあるので、周辺環境も要チェック。</p>
+
+                <p>
+                    テレワークができるならば、通勤アクセスの優先順位は低くなる。駅近にこだわらずに駅からの徒歩分数を長くして家賃を抑えたり、家賃は同額で広い部屋を借りるなどの選択肢も考えてみよう。</p>
+
+                <li>女性</li>
+                <p>
+                    防犯性の高さが大事。オートロック、防犯カメラなどがあると理想的だが、最低でも「２階以上」を選ぶと安心感がアップする。また、窓の向こうの建物から部屋の中が見える状態にないかなど周囲の状況、さらに地域的な安全性もチェック。気になった物件があったら、各都道府県警が提供している犯罪マップなどを見て、その地域の治安もチェックするといい。</p>
+            </div>
+            <div class="person1">
+                <div class="per4"></div>
+                <div class="per5">
+                    <p>ここまで、書いてみました！<br>
+                        また、知らないものがございましたらコメント欄を通じて教えてください。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="text">
+    <input type="text"></input><!--여기가 input-->
+    <button type="button" class="btn btn-warning">登録</button>
+</div>
+<div class="comment">
+    <div class="ment"></div><!--여기가 db에서 코멘트 가져오기-->
+</div>
+<div class="add"></div>
+</body>
+</html>
